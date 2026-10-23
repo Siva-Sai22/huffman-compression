@@ -16,11 +16,22 @@
             "binaryDir": "${sourceDir}/debug",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
-                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "CMAKE_C_FLAGS_DEBUG": "-g -fsanitize=address,undefined -fno-omit-frame-pointer"
             }
         }
     ],
     "buildPresets": [
+        {
+            "name": "build",
+            "configurePreset": "build"
+        },
+        {
+            "name": "debug",
+            "configurePreset": "debug"
+        }
+    ],
+    "testPresets": [
         {
             "name": "build",
             "configurePreset": "build"
